@@ -1,0 +1,41 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#gift-box {
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#gift-box:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.hidden {
+    display: none;
+}
+
+.wish {
+    color: #e91e63;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
