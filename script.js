@@ -1,8 +1,17 @@
 function revealSurprise() {
-    document.getElementById('header').innerText = "SURPRISE!";
-    document.getElementById('gift-box').classList.add('hidden');
-    document.getElementById('surprise').classList.remove('hidden');
+    const gift = document.getElementById('gift-box');
     
-    // Simple console log for testing
-    console.log("Birthday surprise triggered!");
+    // Add a quick "pop" animation effect
+    gift.style.transform = "scale(0.8)";
+    
+    setTimeout(() => {
+        document.getElementById('header').innerText = "HAPPY BIRTHDAY!";
+        gift.classList.add('hidden');
+        document.getElementById('surprise').classList.remove('hidden');
+        
+        // Optional: Trigger device vibration if supported
+        if (navigator.vibrate) {
+            navigator.vibrate(200); 
+        }
+    }, 150);
 }

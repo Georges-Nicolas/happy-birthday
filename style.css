@@ -1,41 +1,47 @@
 body {
-    background-color: #f0f2f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fce4ec; /* Light pink/festive background */
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    text-align: center;
+    padding: 20px; /* Prevents content from touching screen edges */
+    box-sizing: border-box;
 }
 
 .container {
     background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px; /* Limits width on desktop, full width on mobile */
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
 }
 
 #gift-box {
-    font-size: 50px;
+    font-size: 80px; /* Big enough to tap easily on a screen */
+    margin: 20px 0;
     cursor: pointer;
-    transition: transform 0.3s;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
 }
 
-#gift-box:hover {
-    transform: scale(1.2) rotate(5deg);
-}
-
-.hidden {
-    display: none;
-}
-
-.wish {
-    color: #e91e63;
-    animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* Specific mobile adjustment */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    #gift-box {
+        font-size: 100px; /* Makes it the main focus for thumbs */
+    }
 }
