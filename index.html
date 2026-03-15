@@ -2,43 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>The 30th Gala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <audio id="bgMusic" loop>
-        <source src="your-music-file.mp3" type="audio/mpeg">
+        <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-    <nav>
-        <button onclick="showPage('home')">Home</button>
-        <button onclick="showPage('gallery')">Memories</button>
-        <button onclick="showPage('message')">Wishes</button>
-    </nav>
+    <div class="luxury-bg"></div>
 
-    <div id="home" class="page active">
-        <h1 class="bounce">Happy Birthday! 🎂</h1>
-        <p>Click anywhere to start the music!</p>
-        <div class="confetti-button" onclick="toggleMusic()">🎵 Play/Pause Music</div>
+    <div id="intro" class="page active">
+        <div class="hero-content">
+            <h1 class="main-title">Welcome to your <span class="italic">30's</span></h1>
+            <p class="roast-text">You are officially "Old" 🤣🤣</p>
+            <button class="gold-btn" onclick="showPage('kit')">ENTER YOUR 30's</button>
+        </div>
     </div>
 
+    <div id="kit" class="page">
+        <div class="glass-container">
+            <h2 class="section-label">THE SURVIVAL SUITE</h2>
+            <p class="instruction">Open your 30's First Aid Kit</p>
+            <div class="kit-wrapper" onclick="showPage('memories-intro')">
+                <img src="first-aid-kit.png" alt="First Aid Kit" class="kit-img luxury-shake">
+            </div>
+        </div>
+    </div>
+
+    <div id="memories-intro" class="page">
+    <h2 class="section-label">Your 30's Essentials</h2>
+    
+    <div class="cinematic-grid">
+        <figure class="essential-item">
+            <img src="photo1.png" class="premium-img">
+            <figcaption class="essential-label">The Support</figcaption>
+        </figure>
+
+        <figure class="essential-item">
+            <img src="photo2.png" class="premium-img">
+            <figcaption class="essential-label">The Fuel</figcaption>
+        </figure>
+    </div>
+
+    <button class="gold-btn small" onclick="unlockFullSite()">CONTINUE TOUR</button>
+</div>
+
     <div id="gallery" class="page">
-        <h2>Our Best Moments</h2>
-        <div class="photo-grid">
-            <img src="photo1.jpg" alt="Memory 1">
-            <img src="photo2.jpg" alt="Memory 2">
-            <img src="photo3.jpg" alt="Memory 3">
+        <h2 class="section-label">THE ROASTING</h2>
+        <div class="cinematic-grid">
+            <img src="photo3.jpg" class="premium-img">
+            <img src="photo4.jpg" class="premium-img">
+            <img src="photo5.jpg" class="premium-img">
+            <img src="photo6.jpg" class="premium-img">
         </div>
     </div>
 
     <div id="message" class="page">
-        <h2>A Special Note</h2>
-        <div class="card">
-            <p>You're not just a friend; you're family. Hope your day is as awesome as you are!</p>
+        <div class="final-letter">
+            <h2 class="letter-title">A Toast to You</h2>
+            <p>Happy 30th PAMOOOOO! Even if you're "old" now, you're still the ✨STAR✨ of every show. Enjoy your day! 🥂</p>
         </div>
     </div>
+
+    <nav id="mainNav" style="display: none;">
+        <button class="nav-item" onclick="showPage('message')">WISHES</button>
+    </nav>
 
     <script src="script.js"></script>
 </body>

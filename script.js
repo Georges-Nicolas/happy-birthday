@@ -1,24 +1,28 @@
-function showPage(pageId) {
-    // Hide all pages
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-    
-    // Show the selected page
-    document.getElementById(pageId).classList.add('active');
-}
-
 const music = document.getElementById('bgMusic');
+let musicStarted = false;
 
-function toggleMusic() {
-    if (music.paused) {
-        music.play();
-    } else {
-        music.pause();
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    document.getElementById(pageId).classList.add('active');
+
+    if (!musicStarted) {
+        music.play().catch(() => {});
+        musicStarted = true;
+    }
+
+    if (pageId === 'message') {
+        confetti({
+            particleCount: 150,
+            spread: 80,
+            colors: ['#d4af37', '#ffffff', '#fcfcfc'],
+            origin: { y: 0.6 }
+        });
     }
 }
 
-// Auto-play workaround: Browsers block auto-audio, 
-// so it plays on the first click anywhere.
-document.body.addEventListener('click', () => {
-    // music.play(); // Uncomment this if you want it to start on first click
-}, { once: true });
+function unlockFullSite() {
+    document.getElementById('mainNav').style.display = 'flex';
+    showPage('gallery');
+}
