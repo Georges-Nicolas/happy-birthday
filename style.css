@@ -115,18 +115,29 @@ body {
 
 /* Navigation */
 nav {
-    position: fixed; bottom: 30px;
-    width: 80%; left: 10%;
-    background: rgba(255, 255, 255, 0.05);
+    position: fixed; 
+    bottom: 30px;
+    width: 80%; 
+    left: 10%;
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex; justify-content: space-around;
-    padding: 15px; border-radius: 40px;
+    display: flex; 
+    justify-content: space-around;
+    padding: 10px; 
+    border-radius: 40px;
+    z-index: 9999; /* Ensures it sits above all pages */
 }
 
 .nav-item {
-    color: #fff; background: none; border: none;
-    font-size: 0.7rem; letter-spacing: 2px;
+    color: #fff; 
+    background: none; 
+    border: none;
+    font-size: 0.8rem; /* Slightly larger */
+    letter-spacing: 2px;
+    padding: 10px 20px; /* Bigger tap area */
+    width: 100%; /* Makes the whole side of the bar clickable */
+    cursor: pointer;
 }
 
 .final-letter {

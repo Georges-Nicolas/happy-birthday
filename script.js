@@ -2,16 +2,27 @@ const music = document.getElementById('bgMusic');
 let musicStarted = false;
 
 function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.classList.remove('active'));
+    const targetPage = document.getElementById(pageId);
+    
+    // Safety check: if page doesn't exist, stop here
+    if (!targetPage) return;
 
-    document.getElementById(pageId).classList.add('active');
+    // 1. Remove 'active' class from EVERY page immediately
+    const allPages = document.querySelectorAll('.page');
+    allPages.forEach(p => {
+        p.classList.remove('active');
+    });
 
-    if (!musicStarted) {
-        music.play().catch(() => {});
+    // 2. Show the target page
+    targetPage.classList.add('active');
+
+    // 3. Handle Music (starts on first interaction)
+    if (!musicStarted && music) {
+        music.play().catch(e => console.log("Music play blocked:", e));
         musicStarted = true;
     }
 
+    // 4. Trigger Confetti only on the message page
     if (pageId === 'message') {
         confetti({
             particleCount: 150,
@@ -23,6 +34,7 @@ function showPage(pageId) {
 }
 
 function unlockFullSite() {
-    document.getElementById('mainNav').style.display = 'flex';
+    const nav = document.getElementById('mainNav');
+    if (nav) nav.style.display = 'flex';
     showPage('gallery');
 }
